@@ -6,12 +6,12 @@ const path = require('path');
 
 async function githubCommand(sock, chatId, message) {
   try {
-    const res = await fetch('https://api.github.com/repos/nimanew303/NIMA-V5-new);
+    const res = await fetch('https://api.github.com/repos/vinpink2/June-md');
     if (!res.ok) throw new Error('Error fetching repository data');
     const json = await res.json();
 
     let txt = 
-           `🔸  \`NIMA-V5 𝚁𝙴𝙿𝙾 𝙸𝙽𝙵𝙾.\` \n\n`;
+           `🔸  \`𝙹𝚄𝙽𝙴 𝙼𝙳 𝚁𝙴𝙿𝙾 𝙸𝙽𝙵𝙾.\` \n\n`;
     txt += `🔸  *Name* : ${json.name}\n`;
     txt += `🔸  *Watchers* : ${json.watchers_count}\n`;
     txt += `🔸  *Size* : ${(json.size / 1024).toFixed(2)} MB\n`;
@@ -20,7 +20,7 @@ async function githubCommand(sock, chatId, message) {
     txt += `🔸  *Forks* : ${json.forks_count}\n`;
     txt += `🔸  *Stars* : ${json.stargazers_count}\n`;
     txt += `🔸  Dont Forget to fork & star⭐ The Repo \n\n`;
-    txt += `> _⎋nimesha_`;
+    txt += `> _⎋June Md_`;
 
     // Use the local asset image
     const imgPath = path.join(__dirname, '../assets/june_repos.jpg');
@@ -28,7 +28,7 @@ async function githubCommand(sock, chatId, message) {
 
     await sock.sendMessage(chatId, { image: imgBuffer, caption: txt }, { quoted: message });
   } catch (error) {
-    await sock.sendMessage(chatId, { text: '❌ https://github.com/nimanew303/NIMA-V5-new.git.' }, { quoted: message });
+    await sock.sendMessage(chatId, { text: '❌ Error fetching repository information.' }, { quoted: message });
   }
 }
 
