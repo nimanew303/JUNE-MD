@@ -1,17 +1,17 @@
 const fs = require('fs')
 
 //~~~~~~~~~~~ Settings Owner ~~~~~~~~~~~//
-global.owner = "254756280512"
-global.developer = "254756280512"
+global.owner = "94726800969"
+global.developer = "94726800969"
 global.bot = ""
-global.devname = "Supreme"
-global.ownername = "Supreme"
-global.botname = "June Md"
+global.devname = "NIMESHA"
+global.ownername = "NIMESHA"
+global.botname = "NIMA-V5"
 global.versisc = "2"
-global.packname = "⎋June Md"
+global.packname = "⎋NIMA-V5"
 //~~~~~~~~~~~ Settings Sosmed ~~~~~~~~~~~//
-global.linkwa = "https://wa.me/254756280512"
-global.linkyt = "https://www.youtube.com/supreme"
+global.linkwa = "https://wa.me/94726800969"
+global.linkyt = "https://youtube.com/@nimaedition?si=k-p-6UVUdgz2jsPb"
 global.linktt = "https://tiktok.com"
 global.linktele = "https://t.me"
 
@@ -27,25 +27,25 @@ global.owneroff = false
 global.autoswview = true
 
 //~~~~~~~~~~~ Settings Thumbnail ~~~~~~~~~~~//
-global.thumbbot = "https://url.bwmxmd.online/Adams.poh4tuhs.jpg"
-global.thumbown = "https://url.bwmxmd.online/Adams.poh4tuhs.jpg"
+global.thumbbot = "https://files.catbox.moe/w9lv7j.jpg"
+global.thumbown = "https://files.catbox.moe/w9lv7j.jpg"
 
 //~~~~~~~~~~~ Settings Channel ~~~~~~~~~~~//
-global.idchannel = "120363402785346228@newsletter*"
-global.channelname = "ーJUNE MD UPDATES"
-global.channel = "hatsapp.com/channel/0029Vb2W2vAADTOKmdoDxB0m"
+global.idchannel = "120363419075720962@newsletter*"
+global.channelname = "ーNIMA-V5 UPDATES"
+global.channel = "hatsapp.com/channel/0029Vb68g1c3LdQLQDkbAQ3M"
 
 //~~~~~~~~~~~ Settings Message ~~~~~~~~~~~//
 global.mess = {
-  developer: " `[ Developer Only!! ]` \n This feature is for developers only!!",
-  owner: " `[ Owner Only!! ]` \n This feature is for owners only!!",
-  group: " `[ Group Only!! ]` \n This feature is for group chats only!!",
-  private: " `[ Private Only!! ]` \n This feature is for private chats only!!",
-  admin: " `[ Admin Only!! ]` \n This feature is for admins only!!",
-  botadmin: " `[ Bot Admin Only!! ]` \n This feature is for bot admins only!!",
-  wait: " `[ Wait!! ]` \n Please wait, loading...",
-  error: " `[ Error!! ]` \n An error occurred!!",
-  done: " `[ Done!! ]` \n Process completed!!"
+  developer: " `[ Developer හට පමණි!! ]` \n මේ feature එක developers හට පමණි!!",
+  owner: " `[ ප්‍රධානියා හට පමණි!! ]` \n මේ feature එක ප්‍රධානියා හට පමණි!!",
+  group: " `[ සමූහයක පමණි!! ]` \n මේ feature එක සමූහයක පමණි!!",
+  private: " `[ පෞද්ගලිකව පමණි!! ]` \n මේ feature එක පෞද්ගලිකව පමණි!!",
+  admin: " `[ ඇඩ්මින් හට පමණි!! ]` \n මේ feature එක ඇඩ්මින් හට පමණි!!",
+  botadmin: " `[ නිමේෂ හට පමණි!! ]` \n මේ feature එක නිමේෂ හට පමණි!!",
+  wait: " `[ රැඳීසිටින්න!! ]` \n රැඳීසිටින්න, loading...",
+  error: " `[ අසාර්ථකයි!! ]` \n එය අසාර්ථක උණි!!",
+  done: " `[ සාර්ථකයි!! ]` \n සේවාව සාර්ථකයි!!"
 }
 
 let file = require.resolve(__filename)
