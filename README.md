@@ -1,4 +1,4 @@
-# 🌌JUNE MD
+# NIMA-V5
 
 <div align="center"> 
   <a href="https://git.io/typing-svg"> 
@@ -8,7 +8,7 @@
 
 <div align="center"> 
   <a href=""> 
-    <img src="https://files.catbox.moe/7ibt7j.jpg" alt="JUNE MD" height="300"> 
+    <img src="https://files.catbox.moe/w9lv7j.jpg" alt="NIMA V5" height="300"> 
   </a> 
 </div>
 
