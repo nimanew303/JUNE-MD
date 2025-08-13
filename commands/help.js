@@ -22,7 +22,7 @@ function formatTime(seconds) {
 
 async function helpCommand(sock, chatId, message) {
         const start = Date.now();
-        await sock.sendMessage(chatId, { text: '_ටිකක් ඉන්න. load වෙන ගමන්  ||| created by nima..._' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: '*_ටිකක් ඉන්න. load වෙන ගමන්  ||| created by nima..._*' }, { quoted: message });
         const end = Date.now();
         const ping = Math.round((end - start) / 2);
 
