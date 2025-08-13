@@ -8,7 +8,7 @@ async function playCommand(sock, chatId, message) {
         
         if (!searchQuery) {
             return await sock.sendMessage(chatId, { 
-                text: "What song do you want to download?"
+                text: "මොකක්ද ඔයා කැමති සින්දුව?"
             });
         }
 
@@ -16,13 +16,13 @@ async function playCommand(sock, chatId, message) {
         const { videos } = await yts(searchQuery);
         if (!videos || videos.length === 0) {
             return await sock.sendMessage(chatId, { 
-                text: "No songs found!"
+                text: "සමාවන්න. එම ගීතය හමු නොවුනි!"
             });
         }
 
         // Send loading message
         await sock.sendMessage(chatId, {
-            text: "_Please wait your download is in progress_"
+            text: "_රැඳීසිටින්න. බාගනිමින් පවතී.   👩‍💻❤️  *(NIMA CODER)*_"
         });
 
         // Get the first video result
@@ -35,7 +35,7 @@ async function playCommand(sock, chatId, message) {
 
         if (!data || !data.status || !data.result || !data.result.downloadUrl) {
             return await sock.sendMessage(chatId, { 
-                text: "Failed to fetch audio from the API. Please try again later."
+                text: "api කේතයෙහි යම් වැරදීමක් පෙනේ. පසුව උත්සහ කරන්න. සමාවෙන්න."
             });
         }
 
@@ -52,7 +52,7 @@ async function playCommand(sock, chatId, message) {
     } catch (error) {
         console.error('Error in song2 command:', error);
         await sock.sendMessage(chatId, { 
-            text: "*Download failed. Please try again later.*"
+            text: "*බාගැනීම අසාර්ථකයි. පසුව උත්සහ කරන්න 😥.*"
         });
     }
 }
