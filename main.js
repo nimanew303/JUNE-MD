@@ -99,8 +99,8 @@ const videoCommand = require('./commands/video');
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
-global.channelLink = "https://whatsapp.com/channel/0029Va90zAnIHphOuO8Msp3A";
-global.ytch = "supremLord";
+global.channelLink = "https://whatsapp.com/channel/0029Vb68g1c3LdQLQDkbAQ3M";
+global.ytch = "NIMESHA";
 
 // Add this near the top of main.js with other global configurations
 const channelInfo = {
@@ -109,7 +109,7 @@ const channelInfo = {
         isForwarded: false,
         forwardedNewsletterMessageInfo: {
             newsletterJid: '@newsletter',
-            newsletterName: '𝐉ᴜɴᴇ 𝐌ᴅ',
+            newsletterName: 'NIMA-V5',
             serverMessageId: -1
         }
     }
@@ -155,7 +155,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
 
         // Only log command usage
         if (userMessage.startsWith('.')) {
-            console.log(`📝 Command used in ${isGroup ? 'group' : 'private'}: ${userMessage}`);
+            console.log(`📝 විධානය තුල ${isGroup ? 'group' : 'private'}: ${userMessage}`);
         }
 
         // Check if user is banned (skip ban check for unban command)
@@ -163,7 +163,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             // Only respond occasionally to avoid spam
             if (Math.random() < 0.1) {
                 await sock.sendMessage(chatId, {
-                    text: '❌ You are banned from using the bot. Contact an admin to get unbanned.',
+                    text: '❌ ඔබව NIMA BOT විසින් ඉවත් කරන ලදි. කරුණාකර admin වරයෙකු connect කරගනිමින්, ඔබගේ නිවැරදි භාවය පෙන්වා නැවත සම්බන්ධ වන්න.',
                     ...channelInfo
                 });
             }
@@ -221,7 +221,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             isBotAdmin = adminStatus.isBotAdmin;
 
             if (!isBotAdmin) {
-                await sock.sendMessage(chatId, { text: 'Please make the bot an admin to use admin commands.', ...channelInfo }, {quoted: message});
+                await sock.sendMessage(chatId, { text: 'කරුණාකර ඇඩ්මින් වරුන්ට භාවිතා කිරීමට, ඇඩ්මින් විධාන සාදාගන්න.', ...channelInfo }, {quoted: message});
                 return;
             }
 
@@ -235,7 +235,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             ) {
                 if (!isSenderAdmin && !message.key.fromMe) {
                     await sock.sendMessage(chatId, {
-                        text: 'Sorry, only group admins can use this command.',
+                        text: 'සමාවන්න. එය admin වරුන්ට පමණක් භාවිත කල හැකි විධානයකි.',
                         ...channelInfo
                     });
                     return;
@@ -248,7 +248,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             // Check if message is from owner (fromMe) or bot itself
             if (!message.key.fromMe) {
                 await sock.sendMessage(chatId, {
-                    text: '❌ This command is only available for the owner!',
+                    text: '❌ සමාවන්න. එය නිමේෂට පමණක් භාවිත කල හැකි විධානයකි!',
                     ...channelInfo
                 });
                 return;
@@ -263,7 +263,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 return; // Silently ignore messages from non-owners when in private mode
             }
         } catch (error) {
-            console.error('Error checking access mode:', error);
+            console.error('අසාර්ථකයි. නිවැරදිදැයි පරීක්ෂා කරන්න access mode:', error);
             // Default to public mode if there's an error reading the file
         }
 
@@ -274,7 +274,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (quotedMessage?.stickerMessage) {
                     await simageCommand(sock, quotedMessage, chatId);
                 } else {
-                    await sock.sendMessage(chatId, { text: 'Please reply to a sticker with the .simage command to convert it.', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'කරුණාකර convert කිරීමට අදාල රූපය සමඟ විධානය ඇතුලත් කරන්න.', ...channelInfo });
                 }
                 break;
             }
@@ -285,7 +285,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('.mute'):
                 const muteDuration = parseInt(userMessage.split(' ')[1]);
                 if (isNaN(muteDuration)) {
-                    await sock.sendMessage(chatId, { text: 'Please provide a valid number of minutes.\neg to mute 10 minutes\n.mute 10', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'කරුණාකර මිනිත්තුවක් හෝ\neg මිනිත්තු 10 ක්\n.නිශ්ශබ්ද භාවය මිනිත්තු 10', ...channelInfo });
                 } else {
                     await muteCommand(sock, chatId, senderId, muteDuration);
                 }
@@ -326,7 +326,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('.mode'):
                 // Check if sender is the owner
                 if (!message.key.fromMe) {
-                    await sock.sendMessage(chatId, { text: 'Only bot owner can use this command!', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය නිමේෂට පමණක් භාවිත කල හැකි විධානයකි!', ...channelInfo });
                     return;
                 }
                 // Read current data first
@@ -344,7 +344,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (!action) {
                     const currentMode = data.isPublic ? 'public' : 'private';
                     await sock.sendMessage(chatId, {
-                        text: `Current bot mode: *${currentMode}*\n\nUsage: .mode public/private\n\nExample:\n.mode public - Allow everyone to use bot\n.mode private - Restrict to owner only`,
+                        text: `දැන් සිටිනා තත්වය: *${currentMode}*\n\nභාවිතය: .mode public/private\n\nඋදාහරණ:\n.mode public - හැමදෙනාට භාවිතා කල හැකි\n.mode private - ඔබට හා මාගෙ owner වන නිමේෂට පමණක් භාවිතා කල හැකි`,
                         ...channelInfo
                     });
                     return;
@@ -352,7 +352,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
 
                 if (action !== 'public' && action !== 'private') {
                     await sock.sendMessage(chatId, {
-                        text: 'Usage: .mode public/private\n\nExample:\n.mode public - Allow everyone to use bot\n.mode private - Restrict to owner only',
+                        text: 'භාවිතය: .mode public/private\n\nඋදාහරණ:\n.mode public - හැමදෙනාට භාවිතා කල හැකි\n.mode private - ඔබට හා මාගේ owner වන නිමේෂට පමණක් භාවිතා කල හැකි',
                         ...channelInfo
                     });
                     return;
@@ -365,10 +365,10 @@ async function handleMessages(sock, messageUpdate, printLog) {
                     // Save updated data
                     fs.writeFileSync('./data/messageCount.json', JSON.stringify(data, null, 2));
 
-                    await sock.sendMessage(chatId, { text: `Bot is now in *${action}* mode`, ...channelInfo });
+                    await sock.sendMessage(chatId, { text: `NIMA-V5 දැන් සිටින්නේ *${action}* `, ...channelInfo });
                 } catch (error) {
-                    console.error('Error updating access mode:', error);
-                    await sock.sendMessage(chatId, { text: 'Failed to update bot access mode', ...channelInfo });
+                    console.error('මාරු කිරීම අසාර්ථකයි:', error);
+                    await sock.sendMessage(chatId, { text: 'මාරු කිරීම අසාර්ථකයි', ...channelInfo });
                 }
                 break;
             case userMessage === '.owner':
@@ -378,7 +378,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (isSenderAdmin || message.key.fromMe) {
                     await tagAllCommand(sock, chatId, senderId, message);
                 } else {
-                    await sock.sendMessage(chatId, { text: 'Sorry, only group admins can use the .tagall command.', ...channelInfo }, {quoted: message});
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය admin වරුන්ට පමණක් භාවිත කල හැකි විධානයකි.', ...channelInfo }, {quoted: message});
                 }
                 break;
             case userMessage.startsWith('.tag'):
@@ -389,14 +389,14 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('.antilink'):
                 if (!isGroup) {
                     await sock.sendMessage(chatId, {
-                        text: 'This command can only be used in groups.',
+                        text: 'සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි.',
                         ...channelInfo
                     });
                     return;
                 }
                 if (!isBotAdmin) {
                     await sock.sendMessage(chatId, {
-                        text: 'Please make the bot an admin first.',
+                        text: 'ප්‍රතමයෙන්ම admin තනතුර ලබාදෙන්න.',
                         ...channelInfo
                     });
                     return;
@@ -420,7 +420,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (city) {
                     await weatherCommand(sock, chatId, city);
                 } else {
-                    await sock.sendMessage(chatId, { text: 'Please specify a city, e.g., .weather London', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'කරුණාකර නගරය තෝරන්න, උදා., .weather rajanganaya', ...channelInfo });
                 }
                 break;
             case userMessage === '.news':
@@ -433,7 +433,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('.move'):
                 const position = parseInt(userMessage.split(' ')[1]);
                 if (isNaN(position)) {
-                    await sock.sendMessage(chatId, { text: 'Please provide a valid position number for Tic-Tac-Toe move.', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'කරුණාකර නිවැරදි නම ඇතුලත් කරන්න Tic-Tac-Toe move.', ...channelInfo });
                 } else {
                     tictactoeMove(sock, chatId, senderId, position);
                 }
@@ -449,7 +449,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (guessedLetter) {
                     guessLetter(sock, chatId, guessedLetter);
                 } else {
-                    sock.sendMessage(chatId, { text: 'Please guess a letter using .guess <letter>', ...channelInfo });
+                    sock.sendMessage(chatId, { text: 'කරුණාකර guess යනුවෙන් ඇතුලත් කරන්න. උදාහරණ .guess <letter>', ...channelInfo });
                 }
                 break;
             case userMessage.startsWith('.trivia'):
@@ -460,7 +460,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (answer) {
                     answerTrivia(sock, chatId, answer);
                 } else {
-                    sock.sendMessage(chatId, { text: 'Please provide an answer using .answer <answer>', ...channelInfo });
+                    sock.sendMessage(chatId, { text: 'කරුණාකර answer යනුවෙන් ඇතුලත් කරන්න. උදාහරණ .answer <answer>', ...channelInfo });
                 }
                 break;
             case userMessage.startsWith('.compliment'):
@@ -526,10 +526,10 @@ async function handleMessages(sock, messageUpdate, printLog) {
                     if (isSenderAdmin || message.key.fromMe) {
                         await welcomeCommand(sock, chatId, message);
                     } else {
-                        await sock.sendMessage(chatId, { text: 'Sorry, only group admins can use this command.', ...channelInfo });
+                        await sock.sendMessage(chatId, { text: 'සමාවන්න. එය admin වරුන්ට පමණක් භාවිත කල හැකි විධානයකි.', ...channelInfo });
                     }
                 } else {
-                    await sock.sendMessage(chatId, { text: 'This command can only be used in groups.', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය admin වරුන්ට පමණක් භාවිත කල හැකි විධානයකි.', ...channelInfo });
                 }
                 break;
             case userMessage.startsWith('.goodbye'):
@@ -543,10 +543,10 @@ async function handleMessages(sock, messageUpdate, printLog) {
                     if (isSenderAdmin || message.key.fromMe) {
                         await goodbyeCommand(sock, chatId, message);
                     } else {
-                        await sock.sendMessage(chatId, { text: 'Sorry, only group admins can use this command.', ...channelInfo });
+                        await sock.sendMessage(chatId, { text: 'සමාවන්න. එය admin වරුන්ට පමණක් භාවිත කල හැකි විධානයකි.', ...channelInfo });
                     }
                 } else {
-                    await sock.sendMessage(chatId, { text: 'This command can only be used in groups.', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි.', ...channelInfo });
                 }
                 break;
             case userMessage === '.git':
@@ -558,7 +558,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
             case userMessage.startsWith('.antibadword'):
                 if (!isGroup) {
-                    await sock.sendMessage(chatId, { text: 'This command can only be used in groups.', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි.', ...channelInfo });
                     return;
                 }
 
@@ -567,7 +567,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 isBotAdmin = adminStatus.isBotAdmin;
 
                 if (!isBotAdmin) {
-                    await sock.sendMessage(chatId, { text: '*Bot must be admin to use this feature*', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: '*මම එය දැනටත් භාවිතා කරමි*', ...channelInfo });
                     return;
                 }
 
@@ -575,14 +575,14 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
             case userMessage.startsWith('.chatbot'):
                 if (!isGroup) {
-                    await sock.sendMessage(chatId, { text: 'This command can only be used in groups.', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි.', ...channelInfo });
                     return;
                 }
 
                 // Check if sender is admin or bot owner
                 const chatbotAdminStatus = await isAdmin(sock, chatId, senderId);
                 if (!chatbotAdminStatus.isSenderAdmin && !message.key.fromMe) {
-                    await sock.sendMessage(chatId, { text: '*Only admins or bot owner can use this command*', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: '*සමාවන්න. එය admin වරුන්ට පමණක් භාවිත කල හැකි විධානයකි*', ...channelInfo });
                     return;
                 }
 
@@ -604,28 +604,28 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
             case userMessage === '.ship':
                 if (!isGroup) {
-                    await sock.sendMessage(chatId, { text: 'This command can only be used in groups!', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි!', ...channelInfo });
                     return;
                 }
                 await shipCommand(sock, chatId, message);
                 break;
             case userMessage === '.groupinfo' || userMessage === '.infogp' || userMessage === '.infogrupo':
                 if (!isGroup) {
-                    await sock.sendMessage(chatId, { text: 'This command can only be used in groups!', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි!', ...channelInfo });
                     return;
                 }
                 await groupInfoCommand(sock, chatId, message);
                 break;
             case userMessage === '.resetlink' || userMessage === '.revoke' || userMessage === '.anularlink':
                 if (!isGroup) {
-                    await sock.sendMessage(chatId, { text: 'This command can only be used in groups!', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි!', ...channelInfo });
                     return;
                 }
                 await resetlinkCommand(sock, chatId, senderId);
                 break;
             case userMessage === '.staff' || userMessage === '.admins' || userMessage === '.listadmin':
                 if (!isGroup) {
-                    await sock.sendMessage(chatId, { text: 'This command can only be used in groups!', ...channelInfo });
+                    await sock.sendMessage(chatId, { text: 'සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි', ...channelInfo });
                     return;
                 }
                 await staffCommand(sock, chatId, message);
@@ -783,12 +783,12 @@ async function handleMessages(sock, messageUpdate, printLog) {
 
                     if (!groupJid.endsWith('@g.us')) {
                         return await sock.sendMessage(chatId, {
-                            text: "❌ This command can only be used in a group."
+                            text: "❌ සමාවන්න. එය සමූහයක පමණක් භාවිත කල හැකි විධානයකි."
                         });
                     }
 
                     await sock.sendMessage(chatId, {
-                        text: `✅ Group JID: ${groupJid}`
+                        text: `✅ සමූහයේ JID කේතය: ${groupJid}`
                     }, {
                         quoted: message
                     });
@@ -811,11 +811,11 @@ async function handleMessages(sock, messageUpdate, printLog) {
             await addCommandReaction(sock, message);
         }
     } catch (error) {
-        console.error('❌ Error in message handler:', error.message);
+        console.error('❌ අසාර්ථකයි. එය දිගටම කරගෙන යෑමට අසමත් විය:', error.message);
         // Only try to send error message if we have a valid chatId
         if (chatId) {
             await sock.sendMessage(chatId, {
-                text: '❌ Failed to process command!',
+                text: '❌ විධානය කරගෙන යෑමට අසමත් විය!',
                 ...channelInfo
             });
         }
@@ -850,12 +850,12 @@ async function handleGroupParticipantUpdate(sock, update) {
             // Get group metadata
             const groupMetadata = await sock.groupMetadata(id);
             const groupName = groupMetadata.subject;
-            const groupDesc = groupMetadata.desc || 'No description available';
+            const groupDesc = groupMetadata.desc || 'වෙනත් වාක්‍ය නැත';
 
             // Get welcome message from data
             const data = JSON.parse(fs.readFileSync('./data/userGroupData.json'));
             const welcomeData = data.welcome[id];
-            const welcomeMessage = welcomeData?.message || 'Welcome {user} to the group! 🎉';
+            const welcomeMessage = welcomeData?.message || 'සාදරයෙන් පිළිගන්නවා {user} අපගේ සමූහයට! 🎉';
             const channelId = welcomeData?.channelId || '@newsletter';
 
             // Send welcome message for each new participant
@@ -874,7 +874,7 @@ async function handleGroupParticipantUpdate(sock, update) {
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
                             newsletterJid: channelId,
-                            newsletterName: 'June MD',
+                            newsletterName: 'NIMA-V5',
                             serverMessageId: -1
                         }
                     }
@@ -895,7 +895,7 @@ async function handleGroupParticipantUpdate(sock, update) {
             // Get goodbye message from data
             const data = JSON.parse(fs.readFileSync('./data/userGroupData.json'));
             const goodbyeData = data.goodbye[id];
-            const goodbyeMessage = goodbyeData?.message || 'Goodbye {user} 👋';
+            const goodbyeMessage = goodbyeData?.message || 'සුභගමන් {user} 👋';
             const channelId = goodbyeData?.channelId || '@newsletter';
 
             // Send goodbye message for each leaving participant
@@ -913,7 +913,7 @@ async function handleGroupParticipantUpdate(sock, update) {
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
                             newsletterJid: channelId,
-                            newsletterName: 'June MD',
+                            newsletterName: 'NIMA-V5',
                             serverMessageId: -1
                         }
                     }
