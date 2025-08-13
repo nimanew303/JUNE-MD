@@ -22,7 +22,7 @@ function formatTime(seconds) {
 
 async function helpCommand(sock, chatId, message) {
         const start = Date.now();
-        await sock.sendMessage(chatId, { text: '_Loading♻️ please wait..._' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: '_ටිකක් ඉන්න. load වෙන ගමන්  ||| created by nima..._' }, { quoted: message });
         const end = Date.now();
         const ping = Math.round((end - start) / 2);
 
@@ -30,7 +30,7 @@ async function helpCommand(sock, chatId, message) {
         const uptimeFormatted = formatTime(uptimeInSeconds);
     const helpMessage = `
 ┏❐═══════════════════╗
-┃    🌌𝙹𝚄𝙽𝙴-𝙼𝙳 𝙼𝙸𝙽𝙸-𝙱𝙾𝚃🌌
+┃    🌌නිමේෂ මධුෂාන්🌌
 ┗❐═══════════════════╝
 ┏❐═══════════════════╗
 ┃▢  *Owner: ${settings.botOwner}*
