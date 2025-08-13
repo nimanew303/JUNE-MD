@@ -1,8 +1,8 @@
 const settings = {
-  packname: '𝐉ᴜɴᴇ 𝐌ᴅ',
-  author: 'SUPREME',
-  botName: "𝐉ᴜɴᴇ 𝐌ᴅ",
-  botOwner: 'Supreme', // Your name
+  packname: 'NIMA-V5',
+  author: 'NIMESHA',
+  botName: "NIMA-V5",
+  botOwner: 'NIMESHA', // Your name
   ownerNumber: '94726800969', //Set your number here without + symbol.
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "public",
