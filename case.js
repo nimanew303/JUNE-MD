@@ -380,7 +380,7 @@ const path = require("path");
                 {
                   document: { url: outputPath },
                   mimetype: "audio/mp3",
-		  caption: " *𝙹𝚄𝙽𝙴 𝙼𝙳* ",
+		  caption: " *NIMA-V5* ",
                   fileName: outputFileName,
                 },
                 { quoted: m }
