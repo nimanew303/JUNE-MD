@@ -856,7 +856,7 @@ async function handleGroupParticipantUpdate(sock, update) {
             const data = JSON.parse(fs.readFileSync('./data/userGroupData.json'));
             const welcomeData = data.welcome[id];
             const welcomeMessage = welcomeData?.message || 'සාදරයෙන් පිළිගන්නවා {user} අපගේ සමූහයට! 🎉';
-            const channelId = welcomeData?.channelId || '@newsletter';
+            const channelId = welcomeData?.channelId || '@etter';
 
             // Send welcome message for each new participant
             for (const participant of participants) {
@@ -896,7 +896,7 @@ async function handleGroupParticipantUpdate(sock, update) {
             const data = JSON.parse(fs.readFileSync('./data/userGroupData.json'));
             const goodbyeData = data.goodbye[id];
             const goodbyeMessage = goodbyeData?.message || 'සුභගමන් {user} 👋';
-            const channelId = goodbyeData?.channelId || '@newsletter';
+            const channelId = goodbyeData?.channelId || '@neter';
 
             // Send goodbye message for each leaving participant
             for (const participant of participants) {
