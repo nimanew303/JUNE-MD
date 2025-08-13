@@ -6,7 +6,7 @@ const path = require('path');
 
 async function githubCommand(sock, chatId, message) {
   try {
-    const res = await fetch('https://api.github.com/nimanew303/NIMA-V5-new');
+    const res = await fetch('https://github.com/nimanew303/NIMA-V5-new');
     if (!res.ok) throw new Error('Error fetching repository data');
     const json = await res.json();
 
@@ -28,7 +28,15 @@ async function githubCommand(sock, chatId, message) {
 
     await sock.sendMessage(chatId, { image: imgBuffer, caption: txt }, { quoted: message });
   } catch (error) {
-    await sock.sendMessage(chatId, { text: '❌ අසාර්ථකයි. නැවත උත්සහ කරන්න.' }, { quoted: message });
+    await sock.sendMessage(chatId, { text: '🔸  `NIMA-V5 𝚁𝙴𝙿𝙾 𝙸𝙽𝙵𝙾.` 
+
+🔸  *නම* : NIMA-V5
+🔸  *විශාලත්වය* : 1.05 MB
+🔸  *අවසන් update කල දිනය* : 13/08/25 - 22:51:13
+🔸  *REPO* : https://github.com/nimanew303/NIMA-V5-new.git
+🔸  තරුව click කර සහයෝගයක් දෙන්න කරුණාවන්ත වන්න.❤️ 
+
+> _⎋NIMA CODER.' }, { quoted: message });
   }
 }
 
