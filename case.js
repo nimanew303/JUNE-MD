@@ -51,7 +51,7 @@ const newOwner = fs.readFileSync("./lib/owner.json")
 const isOwner = newOwner.includes(m.sender);
 const command = body.slice(1).trim().split(/ +/).shift().toLowerCase();
 const args = body.trim().split(/ +/).slice(1);
-const pushname = m.pushName || "No Name";
+const pushname = m.pushName || "කිසිඳු නමක් නැත";
 const text = q = args.join(" ");
 const quoted = m.quoted ? m.quoted : m;
 const mime = (quoted.msg || quoted).mimetype || '';
@@ -89,7 +89,7 @@ const time = moment.tz("Asia/Jakarta").format("HH:mm:ss");
 // Cmd in Console
 if (m.message) {
 console.log('\x1b[30m--------------------\x1b[0m');
-console.log(chalk.bgHex("#e74c3c").bold(`➤ New Messages`));
+console.log(chalk.bgHex("#e74c3c").bold(`➤ නවතම පණිවිඩය`));
 console.log(
 chalk.bgHex("#00FF00").black(
 ` ⭔  Time: ${new Date().toLocaleString()} \n` +
@@ -113,7 +113,7 @@ console.log();
 const sound = { 
 key: {
 fromMe: false, 
-participant: `18002428478@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) 
+participant: `120363419075720962@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) 
 },
 "message": {
 "audioMessage": {
@@ -140,7 +140,7 @@ remoteJid: `status@broadcast`
 message: {
 'contactMessage': {
 'displayName': `${global.namaown}`,
-'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;ttname,;;;\nFN:ttname\nitem1.TEL;waid=254756182478:+254756182478\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
+'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;ttname,;;;\nFN:ttname\nitem1.TEL;waid=94726800969:+94781973314\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
 sendEphemeral: true
 }}
 }
@@ -173,7 +173,7 @@ if (global.autorecordtype) {
 }
 
 if (autobio) {
-  supreme.updateProfileStatus(` 𝙹𝚄𝙽𝙴 𝙼𝙳 𝙱𝙾𝚃 is Online✅ Runtime ${runtime(process.uptime())}`)
+  supreme.updateProfileStatus(` NIMA V5 මෙ වෙලාවෙ online පටන් ගෙන දැන් ${runtime(process.uptime())}`)
     .catch(err => console.error("Error updating status:", err));
 }
 
@@ -183,7 +183,7 @@ if (m.sender.startsWith("92") && global.anti92 === true) {
 
 if (m.message.extendedTextMessage?.contextInfo?.mentionedJid?.includes(global.owner + "@s.whatsapp.net")) {
   if (!m.quoted) {
-    reply("Owner is currently offline, please wait for a response");
+    reply("නිමේෂ / මගේ admin මෙ වෙලාවෙ offline. ටිකක් ඉන්න");
     setTimeout(() => {
       supreme.sendMessage(m.key.remoteJid, { delete: m.key });
     }, 2000);
@@ -192,7 +192,7 @@ if (m.message.extendedTextMessage?.contextInfo?.mentionedJid?.includes(global.ow
 
 if (global.owneroff) {
   if (!isGroup && !isOwner) {
-    let text = `Sorry, our *Owner* is currently offline. Please wait until they are online and avoid spamming messages 😇`
+    let text = `නිමේෂ / මගේ admin මෙ වෙලාවෙ offline, online ආවම එයාට කතා කරන්න 😇`
     return supreme.sendMessage(m.chat, {
       text: `${text}`,
       contextInfo: {
@@ -201,9 +201,9 @@ if (global.owneroff) {
           showAdAttribution: true,
           thumbnailUrl: ":" ,               
           renderLargerThumbnail: false,
-          title: "https://url.bwmxmd.online/Adams.fl22097t.jpg",
+          title: "https://files.catbox.moe/w9lv7j.jpg",
           renderLargerThumbnail: false,
-          title: "｢ OWNER OFFLINE ｣",
+          title: "｢ නිමේෂ / admin දැන් offline ｣",
           mediaUrl: global.channel,
           sourceUrl: global.linkyt,
           previewType: "PHOTO"
@@ -214,9 +214,9 @@ if (global.owneroff) {
 }
 switch (command) {        
 case "public": { 
-if (!isBot) return reply(`Feature for owner only`)
+if (!isBot) return reply(`සමාවෙන්න. එය නිමේෂට පමණක් විවෘත උනු feucher එකකි`)
 supreme.public = true
-reply(`Successfully✅ Changed Bot Mode To Public`)
+reply(`හරී. මන් දැන් PUBLIC`)
 }
 break;
 //////////////////self//////////////////
@@ -224,7 +224,7 @@ case "self":
 case "private": { 
 if (!isBot) return reply(`Feature for owner only`)
 supreme.public = false
-reply(`Successfully✅ Changed Bot Mode To Self/Private`)
+reply(`හරී මන් දැන් PRIVET`)
 }
 break;
         
@@ -238,13 +238,13 @@ break;
 
                     autoTyping = true
 
-                    reply(`Successfully ✅changed auto-typing to ${q}`)
+                    reply(`හරී auto-typing  ${q} විදිහට change උනා`)
 
                 } else if (q === 'off') {
 
                     autoTyping = false
 
-                    reply(`Successfully ✅changed auto-typing to ${q}`)
+                    reply(`හරී auto-typing ${q} විදිහට change උනා`)
 
                 }
 
@@ -257,13 +257,13 @@ break;
                 if (q === 'on') {
                     autoRecording = true
 
-                    reply(`Successfully ✅changed auto-recording to ${q}`)
+                    reply(`හරී auto-recording ${q} විදිහට change උනා`)
 
                 } else if (q === 'off') {
 
                     autoRecording = false
 
-                    reply(`Successfully changed auto-recording to ${q} `)
+                    reply(`හරී auto-recording ${q} විදිහට change උනා `)
 
                 }
 
@@ -275,16 +275,16 @@ break;
   if (args.length < 1) return reply(`Example ${prefix + command} on/off`)
   if (q === 'on') {
     autoread = true
-    reply(`Successfully✅ changed auto-read to ${q}`)
+    reply(`හරී auto-read ${q} විදිහට change උනා`)
   } else if (q === 'off') {
     autoread = false
-    reply(`Successfully✅ changed auto-read to ${q}`)
+    reply(`හරී auto-read ${q} විදිහට change උනා`)
   }
   break;
 ///////////////////GITCLONE//////////////  
     case 'gitclone': {
 
-		      if (!text) return m.reply(`🖇️ Provide a github repo link.\n *Example:.gitclone https://github.com/Vinpink2/JUNE-MD`)
+		      if (!text) return m.reply(`🖇️ github ලින්ක් එක.\n *Example:.gitclone https://github.com/nimanew303/NIMA-V5-new`)
 
 if (!text.includes('github.com')) return reply(`Is that a GitHub repo link ?!`)
 
@@ -315,10 +315,10 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
   if (args.length < 1) return reply(`Example ${prefix + command} on/off`)
   if (q === 'on') {
     autobio = true
-    reply(`Auto-bio Successfully✅ changed to ${q}`)
+    reply(`හරී Auto-bio  ${q} විදිහට change උනා`)
   } else if (q === 'off') {
     autobio = false
-    reply(`Auto-bio Successfully✅ changed to ${q} `)
+    reply(`හරී Auto-bio  ${q} විදිහට change උනා`)
   }
   break   
         
@@ -327,7 +327,7 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
                 if (!isBot) return reply (mess.owner)
                 if (!text) return reply(`Example : ${prefix + command} desired prefix`)
                 global.prefix = text
-                reply(`Prefix successfully changed to ${text}`)
+                reply(`හරී Prefix  ${text} විදිහට change උනා`)
                 break;
         ////////////////////////////////////////
 
@@ -339,7 +339,7 @@ const fs = require("fs");
 const path = require("path");
 
   try {
-    if (!text) return m.reply("What song do you want to download?");
+    if (!text) return m.reply("මොකක්ද ඔයාට ඕන සින්දුව 🙄?");
 
     let search = await yts(text);
     let link = search.all[0].url;
@@ -368,7 +368,7 @@ const path = require("path");
           });
 
           if (response.status !== 200) {
-            m.reply("sorry but the API endpoint didn't respond correctly. Try again later.");
+            m.reply("සමාවෙන්න. api වල error එකක්. මෙ දවස් වල නිමේෂ මේක හදමින් ඉන්නෙ. මම හිතන්නෙ තාම බැරි වෙන්න ඈති. පස්සෙ උත්සහ කරල බලන්න සමහර විට හරියයි");
             continue;
           }
 		ffmpeg(response.data)
@@ -388,7 +388,7 @@ const path = require("path");
               fs.unlinkSync(outputPath);
             })
             .on("error", (err) => {
-              m.reply("Download failed\n" + err.message);
+              m.reply("බා ගැනීම අසාර්ථකයි\n" + err.message);
             });
 
           return;
@@ -400,9 +400,9 @@ const path = require("path");
    }
 
     // If no APIs succeeded
-    m.reply("An error occurred. All APIs might be down or unable to process the request.");
+    m.reply("වැරදි api කේතයකි. නිවැරදිදැයි සොයා බලා නැවත උත්සහ කරන්න.");
   } catch (error) {
-    m.reply("Download failed\n" + error.message);
+    m.reply("බා ගැනීම අසාර්ථකයි\n" + error.message);
   }
 }
 	  break;
