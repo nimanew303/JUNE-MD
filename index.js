@@ -74,10 +74,10 @@ const store = {
     }
 }
 
-let phoneNumber = "254792021944"
+let phoneNumber = "94726800969"
 let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 
-global.botname = "𝐉ᴜɴᴇ 𝐌ᴅ"
+global.botname = "NIMA-V5"
 global.themeemoji = "•"
 global.statusview = true
 
@@ -146,7 +146,7 @@ async function startconn() {
                             isForwarded: false,
                             forwardedNewsletterMessageInfo: {
                                 newsletterJid: '@newsletter',
-                                newsletterName: '𝐉ᴜɴᴇ 𝐌ᴅ',
+                                newsletterName: 'NIMA-V5',
                                 serverMessageId: -1
                             }
                         }
@@ -230,14 +230,14 @@ async function startconn() {
         if (!!global.phoneNumber) {
             phoneNumber = global.phoneNumber
         } else {
-            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFormat: 2547XXXXX (without + or spaces) : `)))
+            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`කරුණාකර ඔබගේ දුරකථන අංකය ඇතුලත් කරන්න 😍\nFormat: 94726800969 ( + ලකුණ සහ හිස්තැන් නොතබන්න) : `)))
         }
 
         phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
 
         const pn = require('awesome-phonenumber');
         if (!pn('+' + phoneNumber).isValid()) {
-            console.log(chalk.red('Invalid phone number. Please enter your full international number (e.g., 255792021944 for Tanzania, 254798570132 for Kenya, etc.) without + or spaces.'));
+            console.log(chalk.red('වැරදි දුරකතන අංකයකි. කරුණාකර නිවැරදි අංකය ඇතුලත් කරන්න (උදා., 94726800969 ශ්‍රීලංකාව තුල, 254798570132 ශ්‍රීලංකාව තුල.) + ලකුණ සහ හිස්තැන් නොතබන්න.'));
             process.exit(1);
         }
 
@@ -245,11 +245,11 @@ async function startconn() {
             try {
                 let code = await conn.requestPairingCode(phoneNumber)
                 code = code?.match(/.{1,4}/g)?.join("-") || code
-                console.log(chalk.black(chalk.bgGreen(`Your Pairing Code : `)), chalk.black(chalk.white(code)))
-                console.log(chalk.yellow(`\nPlease enter this code in your WhatsApp app:\n1. Open WhatsApp\n2. Go to Settings > Linked Devices\n3. Tap "Link a Device"\n4. Enter the code shown above`))
+                console.log(chalk.black(chalk.bgGreen(`ඔබගේ Pairing කේතය: `)), chalk.black(chalk.white(code)))
+                console.log(chalk.yellow(`\nකරුණාකර මෙම කේතය WhatsApp app හි link කරගන්න:\n1. WhatsApp open කරගන්න\n2. Settings වලට යන්න> Linked Devices ඔබන්න\n3. "Link a Device"ඔබන්න\n4. කේතය ඇතුලත් කරන්න`))
             } catch (error) {
-                console.error('Error requesting pairing code:', error)
-                console.log(chalk.red('Failed to get pairing code. Please check your phone number and try again.'))
+                console.error('pair කේතය ඉල්ලීම අසාර්ථකයි:', error)
+                console.log(chalk.red('කේතය ඉල්ලීම අසාර්ථකයි. කරුණාකර දුරකථන අංකය නිවැරදිදැයි බලා නැවත උත්සහ කරන්න.'))
             }
         }, 3000)
     }
@@ -260,14 +260,14 @@ async function startconn() {
         if (connection == "open") {
             await conn.groupAcceptInvite('HsPNX1fC2UY5mGSIyGr8m6');
             console.log(chalk.magenta(` `))
-            console.log(chalk.yellow(`♻️Connected to => ` + JSON.stringify(conn.user, null, 2)))
+            console.log(chalk.yellow(`සම්බන්ධ උනි => ` + JSON.stringify(conn.user, null, 2)))
             
             const botNumber = conn.user.id.split(':')[0] + '@s.whatsapp.net';
             await conn.sendMessage(botNumber, { 
                 text: 
                 `
 ┏❐═⭔ *CONNECTED* ⭔═❐
-┃⭔ *Bot:* JUNE MD
+┃⭔ *Bot:* NIMA-V5
 ┃⭔ *Time:* ${new Date().toLocaleString()}
 ┃⭔ *Status:* Online
 ┃⭔ *User:* ${botNumber}
@@ -277,20 +277,20 @@ async function startconn() {
                     isForwarded: false,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '@newsletter',
-                        newsletterName: '𝐉ᴜɴᴇ 𝐌ᴅ',
+                        newsletterName: 'NIMA-V5',
                         serverMessageId: -1
                     }
                 }
             });
 
             await delay(1999)
-            console.log(chalk.yellow(`\n\n    ${chalk.bold.blue(`[ ${global.botname || 'KNIGHT BOT'} ]`)}\n\n`))
+            console.log(chalk.yellow(`\n\n    ${chalk.bold.blue(`[ ${global.botname || 'NIMA-V5'} ]`)}\n\n`))
             console.log(chalk.cyan(`< ================================================== >`))
             console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL: SUPRMELORD`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: mrunqiuehacker`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: nimanew303`))
             console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${owner}`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: SUPREMELORD`))
-            console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: NIMESHA`))
+            console.log(chalk.green(`${global.themeemoji || '•'} 🤖 NIMA V5 සාර්ථකව සම්බන්ධ උනි ✅`))
             console.log(chalk.cyan(`< ================================================== >`))
         }
         if (
