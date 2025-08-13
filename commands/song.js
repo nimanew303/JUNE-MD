@@ -1,4 +1,4 @@
-/*Créditos A Quien Correspondan 
+/*Cr茅ditos A Quien Correspondan 
 Play Traido y Editado 
 Por Cuervo-Team-Supreme*/
 
@@ -95,7 +95,7 @@ const savetube = {
          return {
             status: false,
             code: 400,
-            error: "No link provided. Please provide a valid YouTube link."
+            error: "වැරදි ලිංකුවකි. නිවැරදිදැයි පරීක්ෂා කර නැවත උත්සහ කරන්න."
          }
       }
       if (!format || !savetube.formats.includes(format)) {
@@ -107,7 +107,7 @@ const savetube = {
          }
       }
       const id = savetube.youtube(link);
-      if (!id) throw new Error('Invalid YouTube link.');
+      if (!id) throw new Error('වැරදි ලිංකුවකි.');
       try {
          const cdnx = await savetube.getCDN();
          if (!cdnx.status) return cdnx;
@@ -125,13 +125,13 @@ const savetube = {
                key: decrypted.key
             });
          } catch (error) {
-            throw new Error('Failed to get download link. Please try again later.');
+            throw new Error('බාගැනීම අසාර්ථකයි පරීක්ෂා කර නැවත උත්සහ කරන්න.');
          };
          return {
             status: true,
             code: 200,
             result: {
-               title: decrypted.title || "Unknown Title",
+               title: decrypted.title || "නොදන්නා මාතෘකාව",
                type: format === 'mp3' ? 'audio' : 'video',
                format: format,
                thumbnail: decrypted.thumbnail || `https://i.ytimg.com/vi/${id}/0.jpg`,
@@ -144,7 +144,7 @@ const savetube = {
             }
          }
       } catch (error) {
-         throw new Error('An error occurred while processing your request. Please try again later.');
+         throw new Error('බාගැනීම අසාර්ථකයි පරීක්ෂා කර නැවත උත්සහ කරන්න');
       }
    }
 };
@@ -154,7 +154,7 @@ async function songCommand(sock, chatId, message) {
         const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
         const searchQuery = text.split(' ').slice(1).join(' ').trim();
         if (!searchQuery) {
-            return await sock.sendMessage(chatId, { text: "What song do you want to download?" });
+            return await sock.sendMessage(chatId, { text: "ඔයාට බාගන්න අවශ්‍ය ගීතය මොකක්ද 🙄👩‍💻?" });
         }
 
         // Determine if input is a YouTube link or search query
@@ -175,10 +175,10 @@ async function songCommand(sock, chatId, message) {
         try {
             result = await savetube.download(videoUrl, 'mp3');
         } catch (err) {
-            return await sock.sendMessage(chatId, { text: "Failed to fetch download link. Try again later." });
+            return await sock.sendMessage(chatId, { text: "බාගැනීම අසාර්ථකයි පරීක්ෂා කර නැවත උත්සහ කරන්න." });
         }
         if (!result || !result.status || !result.result || !result.result.download) {
-            return await sock.sendMessage(chatId, { text: "Failed to get a valid download link from the API." });
+            return await sock.sendMessage(chatId, { text: "ලිංකුවෙහි api කේතයේ අක්‍රිය තාවයක් පෙනීයයි. නැවත උත්සහ කරන්න." });
         }
 
         // Send thumbnail and title first
@@ -186,7 +186,7 @@ async function songCommand(sock, chatId, message) {
         try {
             sentMsg = await sock.sendMessage(chatId, {
                 image: { url: result.result.thumbnail },
-                caption: `*${result.result.title}*\n\n _Downloading song Request ..._\n  *_By 𝐉ᴜɴᴇ 𝐌ᴅ_*`
+                caption: `*${result.result.title}*\n\n _බාගැනීමට ඉල්ලීම කර ඇත ..._\n  *_coded by nima*`
             }, { quoted: message });
         } catch (e) {
             // If thumbnail fails, fallback to just sending the audio
@@ -199,7 +199,7 @@ async function songCommand(sock, chatId, message) {
         const tempFile = path.join(tempDir, `${Date.now()}.mp3`);
         const response = await axios({ url: result.result.download, method: 'GET', responseType: 'stream' });
         if (response.status !== 200) {
-            return await sock.sendMessage(chatId, { text: "Failed to download the song file from the server." });
+            return await sock.sendMessage(chatId, { text: "මාගේ server එක තුල එම file එක දක්නට නොලැබේ. සමාවන්න." });
         }
         const writer = fs.createWriteStream(tempFile);
         response.data.pipe(writer);
@@ -223,7 +223,7 @@ async function songCommand(sock, chatId, message) {
             } catch {}
         }, 5000);
     } catch (error) {
-        await sock.sendMessage(chatId, { text: "Download failed. Please try again later." });
+        await sock.sendMessage(chatId, { text: "බාගැනීම අසාර්ථකයි පරීක්ෂා කර නැවත උත්සහ කරන්න." });
     }
 }
 
